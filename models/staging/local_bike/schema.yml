@@ -82,7 +82,7 @@ models:
           - relationships:
               name: FK_brand_id_from_brands
               to: ref('local_bike_brands')
-              field: brands_id
+              field: brand_id
 
   - name: local_bike_staffs
     description: "This model contains staff information, including where their phone number and name."

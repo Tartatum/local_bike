@@ -1,0 +1,6 @@
+select
+    order_item_id,
+    sum(list_price) as total_amount
+from {{ ref('local_bike_order_items') }}
+group by order_item_id
+having total_amount <= 0
