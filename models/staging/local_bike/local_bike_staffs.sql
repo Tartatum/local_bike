@@ -6,5 +6,5 @@ select
 	phone,
 	active,
 	store_id,
-	manager_id
+	safe_cast(manager_id as integer) as manager_id
 from {{ source('local_bikes', 'staffs') }}
