@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: local_bike_most_sold_product
+    description: '{{ doc("local_bike_most_sold_product") }}'
+    columns:
+      - name: most_sold_id
+        description: "Primary key, unique identifier for each store by product."
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "Foreign key of Store, the store needs to exist."
+        tests:
+          - relationships:
+              to: ref('local_bike_stores')
+              field: store_id
+      - name: product_id
+        description: "Foreign key of Product, the store needs to exist."
+        tests:
+          - relationships:
+              to: ref('local_bike_products')
+              field: product_id

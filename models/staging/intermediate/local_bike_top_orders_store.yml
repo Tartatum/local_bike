@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: local_bike_top_orders_store
+    description: '{{ doc("local_bike_top_orders_store") }}'
+    columns:
+      - name: store_id
+        description: "Primary key, unique identifier for each store."
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "Foreign key of Store, the store needs to exist."
+        tests:
+          - relationships:
+              to: ref('local_bike_stores')
+              field: store_id
