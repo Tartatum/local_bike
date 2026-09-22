@@ -6,7 +6,8 @@ select
   p.product_name,
   c.category_name,
   count(*) as number_of_order,
-  sum(quantity) as quantity_sold
+  sum(quantity) as quantity_sold,
+  round(sum((oi.quantity * oi.list_price) * (1 - oi.discount)),2) as total_revenue
 from {{ref("local_bike_order_items")}} oi
 left join {{ref("local_bike_products")}} p on oi.product_id = p.product_id
 left join {{ref("local_bike_categories")}} c on p.category_id = c.category_id
